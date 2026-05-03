@@ -14,3 +14,9 @@
 - type: storeCategory
   id: SalvageStoreFun
   name: Fun
+
+# black market
+
+- type: storeCategory
+  id: BlackMarketAmmo
+  name: Ammo
