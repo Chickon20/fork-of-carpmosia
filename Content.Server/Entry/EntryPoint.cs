@@ -1,3 +1,4 @@
+using System.IO;
 using System.Threading.Tasks;
 using Content.Server.Acz;
 using Content.Server.Administration;
@@ -25,6 +26,7 @@ using Content.Server.ServerInfo;
 using Content.Server.ServerUpdates;
 using Content.Server.Voting.Managers;
 using Content.Shared.CCVar;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FeedbackSystem;
 using Content.Shared.Kitchen;
 using Content.Shared.Localizations;
@@ -92,6 +94,7 @@ namespace Content.Server.Entry
             }
 
             Dependencies.Resolve<IRobustSerializer>().FloatFlags = SerializerFloatFlags.RemoveReadNan;
+            ReagentGasGenerator.Run(Path.Combine(ReagentGasGenerator.FindResourcesDir(), "Prototypes"));
         }
 
         /// <inheritdoc />

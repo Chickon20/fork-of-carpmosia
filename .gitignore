@@ -309,3 +309,6 @@ Resources/MapImages
 
 # Direnv stuff
 .direnv/
+
+# Auto-generated prototype files
+Resources/Prototypes/_Generated/

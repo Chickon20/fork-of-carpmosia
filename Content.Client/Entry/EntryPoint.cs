@@ -1,3 +1,4 @@
+using System.IO;
 using Content.Client.Administration.Managers;
 using Content.Client.Changelog;
 using Content.Client.Chat.Managers;
@@ -25,6 +26,7 @@ using Content.Client.UserInterface;
 using Content.Client.Viewport;
 using Content.Client.Voting;
 using Content.Shared.Ame.Components;
+using Content.Shared.Chemistry.Reagent;
 using Content.Shared.FeedbackSystem;
 using Content.Shared.Gravity;
 using Content.Shared.Localizations;
@@ -89,6 +91,8 @@ namespace Content.Client.Entry
                 var cast = (ClientModuleTestingCallbacks) callback;
                 cast.ClientBeforeIoC?.Invoke();
             }
+
+            ReagentGasGenerator.Run(Path.Combine(ReagentGasGenerator.FindResourcesDir(), "Prototypes"));
         }
 
         public override void Init()
