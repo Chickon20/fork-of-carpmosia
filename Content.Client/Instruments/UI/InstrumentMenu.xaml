@@ -1,5 +1,5 @@
 <DefaultWindow xmlns="https://spacestation14.io"
-            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client">
+            xmlns:gfx="clr-namespace:Robust.Client.Graphics;assembly=Robust.Client" MinHeight="250">
     <BoxContainer Orientation="Vertical" SeparationOverride="5">
         <BoxContainer Orientation="Horizontal" VerticalExpand="True">
             <Button Name="InputButton" ToggleMode="True" Text="{Loc 'instruments-component-menu-input-button'}" TextAlign="Center"
@@ -11,6 +11,17 @@
             <Button Name="FileButton" Text="{Loc 'instruments-component-menu-play-button'}" TextAlign="Center" HorizontalExpand="True"
                     SizeFlagsStretchRatio="1" />
         </BoxContainer>
+        <Collapsible HorizontalExpand="True">
+            <CollapsibleHeading HorizontalExpand="True" Title="{Loc 'instruments-component-menu-volume-header'}">
+                <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <Control HorizontalExpand="True"></Control>
+                    <Label Name="VolumePercentage" Text="100%"></Label>
+                </BoxContainer>
+            </CollapsibleHeading>
+            <CollapsibleBody>
+                <Slider Name="VolumeSlider" MinValue="1" MaxValue="200" Value="100"></Slider>
+            </CollapsibleBody>
+        </Collapsible>
         <BoxContainer Orientation="Horizontal" VerticalExpand="True">
             <Button Name="LoopButton" ToggleMode="True" Text="{Loc 'instruments-component-menu-loop-button'}" TextAlign="Center" HorizontalExpand="True"
                     SizeFlagsStretchRatio="1" />
@@ -21,11 +32,7 @@
             <Button Name="StopButton" Text="{Loc 'instruments-component-menu-stop-button'}" TextAlign="Center" HorizontalExpand="True"
                     SizeFlagsStretchRatio="1" />
         </BoxContainer>
-        <BoxContainer Orientation="Horizontal" VerticalExpand="True">
-            <Control HorizontalExpand="True" SizeFlagsStretchRatio="0.125" />
-            <Slider Name="PlaybackSlider" HorizontalExpand="True" />
-            <Control HorizontalExpand="True" SizeFlagsStretchRatio="0.125" />
-        </BoxContainer>
+        <Slider Name="PlaybackSlider" HorizontalExpand="True" MinHeight="25"/>
     </BoxContainer>
     <PanelContainer Name="UnavailableOverlay" Visible="False" MouseFilter="Stop">
         <PanelContainer.PanelOverride>

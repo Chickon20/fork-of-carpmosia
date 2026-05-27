@@ -42,6 +42,7 @@ namespace Content.Client.Instruments.UI
             BandButton.OnPressed += BandButtonOnPressed;
             BandButton.OnToggled += BandButtonOnToggled;
             FileButton.OnPressed += MidiFileButtonOnOnPressed;
+            VolumeSlider.OnValueChanged += VolumeSliderOnValueChanged;
             LoopButton.OnToggled += MidiLoopButtonOnOnToggled;
             ChannelsButton.OnPressed += ChannelsButtonOnPressed;
             StopButton.OnPressed += MidiStopButtonOnPressed;
@@ -222,6 +223,11 @@ namespace Content.Client.Instruments.UI
 
             _entManager.System<InstrumentSystem>().CloseMidi(Entity, false);
             OnCloseChannels?.Invoke();
+        }
+
+        private void VolumeSliderOnValueChanged(Range range)
+        {
+            VolumePercentage.Text = $"{range.Value:F0}%";
         }
 
         private void MidiLoopButtonOnOnToggled(ButtonToggledEventArgs obj)
